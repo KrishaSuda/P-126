@@ -4,7 +4,10 @@ scoreLeftWrist = 0
 rightWristX = 0;
 rightWristY = 0;
 scoreRightWrist = 0;
-statusOfTheSong = "";
+statusOfTheSong1 = "";
+statusOfTheSong2 = "";
+song1 = "";
+song2 = "";
 
 function preload(){
     song1 = loadSound("music.mp3")
@@ -28,13 +31,14 @@ function modelLoaded(){
 
 function draw(){
     image(video, 0, 0, 600, 500);
-
+    statusOfTheSong1 = song1.isPlaying();
+    statusOfTheSong2 = song2.isPlaying();
     fill("#32a852");
     stroke("#32a852")
     if(scoreLeftWrist > 0.2){
         circle(leftWristX,leftWristY,20);
         song2.stop();
-        if(song1.isPlaying() = flase){
+        if(statusOfTheSong1 = false){
             song1.play();
             document.getElementById("song").innerHTML = "Peter Pan";
         }
